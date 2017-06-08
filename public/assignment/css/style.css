@@ -96,9 +96,3 @@ body {
     padding: 5px;
     border-bottom-left-radius: 10px;
 }
-
-@media(max-width:767px) {
-    .navbar.navbar-default.navbar-fixed-top .row .navbar-text  span{
-        padding-left: 15px;
-    }
-}

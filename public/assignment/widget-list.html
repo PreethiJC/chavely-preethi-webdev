@@ -10,16 +10,25 @@
 <body>
 
 <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
+    <div class="container-fluid" >
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                Widget List
-            </a>
-            <p class="navbar-text pull-right">
-                <a href="#" class="navbar-link">
-                    <span class="glyphicon glyphicon-plus"></span>
+            <!--<div class="row">-->
+            <p class="navbar-text pull-left" style="padding-left: 0px; margin-left: 0px">
+                <a href="page-list.html" class="navbar-link">
+                        <span class="glyphicon glyphicon-chevron-left">
+                        </span>
                 </a>
             </p>
+            <a class="navbar-brand" href="#">
+                Widgets
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="widget-choose.html" class="navbar-link">
+                    <span class="glyphicon glyphicon-plus">
+                    </span>
+                </a>
+            </p>
+            <!--</div>-->
         </div>
     </div>
 </nav>
@@ -64,38 +73,24 @@
     </div>
     <div class="wd-widget">
         <div class="wd-widget-toolbar">
-            <span class="glyphicon glyphicon-cog"></span>
+            <a href="widget-youtube.html">
+                <span class="glyphicon glyphicon-cog"></span>
+            </a>
             <span class="glyphicon glyphicon-align-justify"></span>
         </div>
 
-        <iframe width="100%" src="https://www.youtube.com/embed/rwhuzDSlgXM" frameborder="0" allowfullscreen></iframe>
+        <iframe width="100%" height="500px" src="https://youtube.com/embed/uLWLashCXHE" frameborder="0" allowfullscreen></iframe>
+        <p>Flying in a wingsuit? That’s just not enough anymore. Anyone could do that (I would never do that). You have to make it more extreme, like by hitting a target while you’re cutting through the air at crazy speeds. Or by making that target a small ring that you have to somehow fly through. Or by lighting that ring on fire. Or by... actually, that should be extreme enough for now.</p>
 
     </div>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-        <div class="row navbar-text">
-            <div class="col-xs-3 text-center">
-                <a href="#">
-                    <span class="glyphicon glyphicon-ok"></span>
-                </a>
-            </div>
-            <div class="col-xs-3 text-center">
-                <a href="#">
-                    <span class="glyphicon glyphicon-plus"></span>
-                </a>
-            </div>
-            <div class="col-xs-3 text-center">
-                <a href="#">
-                    <span class="glyphicon glyphicon-star"></span>
-                </a>
-            </div>
-            <div class="col-xs-3 text-center">
-                <a href="#">
-                    <span class="glyphicon glyphicon-heart"></span>
-                </a>
-            </div>
+    <div class="container-fluid">
+        <div class="row" style="margin-top: 19px; padding-right: 30px">
+            <a href="profile.html">
+                <span class="glyphicon glyphicon-user pull-right"></span>
+            </a>
         </div>
     </div>
 </nav>
