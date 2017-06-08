@@ -46,6 +46,45 @@ nav.navbar.navbar-default.navbar-fixed-top{
     padding-left: 15px;
 }
 
+nav.navbar.navbar-default.navbar-fixed-bottom .row-1px{
+    margin-top: 19px;
+    padding-right: 1px
+}
+
+nav.navbar.navbar-default.navbar-fixed-bottom .row-15px{
+    margin-top: 19px;
+    padding-right: 15px
+}
+
+.navbar-text-0px{
+    padding-left: 0px;
+    margin-top: 15px;
+    margin-left: 0px
+}
+
+@media (min-width: 768px) {
+    .padding-15px {
+        padding-left: 15px;
+        /*margin-top: 15px;*/
+        /*margin-left: 10px*!*/
+    }
+
+}
+/*.padding-30px{*/
+    /*padding-left: 30px;*/
+/*}*/
+/*.padding-15px{*/
+    /*padding-left: 30px;*/
+/*}*/
+
+.col-separator-left{
+    border-left: 1px solid silver;
+}
+
+.col-separator-right{
+    border-right: 1px solid silver;
+}
+
 body {
     padding-top: 60px;
     padding-bottom: 60px;
