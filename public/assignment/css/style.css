@@ -46,6 +46,9 @@ nav.navbar.navbar-default.navbar-fixed-top .ng-scope{
     padding-left: 15px;
 }
 
+nav.navbar.navbar-default.navbar-fixed-bottom.ng-scope{
+    background-color: #337ab7;
+}
 
 nav.navbar.navbar-default.navbar-fixed-bottom .row-1px{
     margin-top: 19px;
