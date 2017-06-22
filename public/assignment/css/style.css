@@ -42,9 +42,10 @@ select.form-control {
     margin-bottom: 5px;
 }
 
-nav.navbar.navbar-default.navbar-fixed-top{
+nav.navbar.navbar-default.navbar-fixed-top .ng-scope{
     padding-left: 15px;
 }
+
 
 nav.navbar.navbar-default.navbar-fixed-bottom .row-1px{
     margin-top: 19px;
@@ -62,6 +63,14 @@ nav.navbar.navbar-default.navbar-fixed-bottom .row-15px{
     margin-left: 0px
 }
 
+
+.container-fluid .navbar-header .row {
+    background-color: #337ab7;
+}
+
+nav.navbar.navbar-default.navbar-fixed-top .container-fluid{
+    background-color: #337ab7;
+}
 @media (min-width: 768px) {
     .padding-15px {
         padding-left: 15px;
@@ -69,6 +78,11 @@ nav.navbar.navbar-default.navbar-fixed-bottom .row-15px{
         /*margin-left: 10px*!*/
     }
 
+}
+@media(max-width: 767px) {
+    .navbar.navbar-default.navbar-fixed-top .row .navbar-text  span{
+        padding-left: 30px;
+    }
 }
 /*.padding-30px{*/
     /*padding-left: 30px;*/
@@ -104,10 +118,12 @@ body {
 }
 
 .navbar-header {
+    background-color: #337ab7;
     width: 100%;
 }
 
 .navbar-default .container .row.navbar-text  {
+    background-color: #337ab7;
     width: 100%;
 }
 
