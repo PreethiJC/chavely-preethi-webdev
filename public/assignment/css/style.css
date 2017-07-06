@@ -46,7 +46,7 @@ nav.navbar.navbar-default.navbar-fixed-top .ng-scope{
     padding-left: 15px;
 }
 
-nav.navbar.navbar-default.navbar-fixed-bottom.ng-scope{
+nav.navbar.navbar-default.navbar-fixed-bottom .ng-scope{
     background-color: #337ab7;
 }
 
@@ -112,6 +112,8 @@ body {
 }
 
 .navbar-default {
+
+    background-image: none;
     background-color: #337ab7;
     border-color: #337ab7;
 }

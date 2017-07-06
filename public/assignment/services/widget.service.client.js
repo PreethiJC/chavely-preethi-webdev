@@ -9,53 +9,60 @@
         this.findWidgetById = findWidgetById;
         this.updateWidget = updateWidget;
         this.deleteWidget = deleteWidget;
+        this.uploadImage = uploadImage;
 
-        var widgets = [
-                { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
-                { "_id": "234", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-                { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
-                    "url": "http://lorempixel.com/400/200/"},
-                { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"},
-                { "_id": "567", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-                { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
-                    "url": "https://youtu.be/AM2Ivdi9c4E" },
-                { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
-            ];
+        var pageURL = '/api/assignment/page';
+        var widgetURL = '/api/assignment/widget';
 
         function createWidget(pageId, widget) {
-            widget._id = (new Date()).getTime() + "";
-            widget.pageId = pageId;
-            widgets.push(widget);
+            var url = pageURL + '/' + pageId + '/widget';
+            return $http.post(url, widget)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function deleteWidget(widgetId) {
-            var widget = findPageById(widgetId);
-            var index = pages.indexOf(widget);
-            widgets.splice(index, 1);
+            var url = widgetURL + '/' + widgetId;
+            return $http.delete(url)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function findWidgetById(widgetId) {
-            return widgets.find(function (widget) {
-                return widget._id === widgetId;
-            });
+            var url = widgetURL + '/' + widgetId;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function findWidgetsByPageId(pageId) {
-            var results = [];
-            for(var v in widgets) {
-                if(widgets[v].pageId === pageId) {
-                    widgets[v].created = new Date();
-                    widgets[v].accessed = new Date();
-                    results.push(widgets[v]);
-                }
-            }
-            return results;
+            var url = pageURL + '/' + pageId + '/widget';
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function updateWidget(widgetId, widget) {
-            var oldWidget = findPageById(widgetId);
-            var index = pages.indexOf(oldWidget);
-            pages.splice(index, 1, widget);
+            var url = widgetURL + '/' + widgetId;
+            return $http.put(url, widget)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function uploadImage(form) {
+            var url = '/api/assignment/upload';
+            return $http.post(url, form, {
+                transformRequest: angular.identity,
+                headers: {'Content-Type': undefined}
+            })
+                .then(function (response) {
+                    return response.data;
+                });
         }
     }
 })();

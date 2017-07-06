@@ -1,66 +1,40 @@
-
-
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid" >
-        <div class="navbar-header">
-            <!--<div class="row">-->
-            <p class="navbar-text-0px pull-left">
-                <a href="widget-list.view.client.html" class="navbar-link">
-                        <span class="glyphicon glyphicon-chevron-left">
-                        </span>
-                </a>
-            </p>
-            <a class="navbar-brand" href="#">
-                <span class="padding-15px">Widget Edit</span>
-            </a>
-            <p class="navbar-text pull-right">
-                <a href="widget-list.view.client.html" class="navbar-link">
-                    <span class="glyphicon glyphicon-ok">
-                    </span>
-                </a>
-            </p>
-            <!--</div>-->
-        </div>
-    </div>
-</nav>
-
 <div class="container-fluid">
 
     <label for="name">Name</label>
-    <input class="form-control"
-           placeholder="Name of the YouTube Video"
-           value="Man in Wingsuit Flies Straight Through a Ring of Fire"
-           id="name"/>
+    <input type="text"
+           ng-model="model.widget.name"
+           id="name"
+           class="form-control"
+           placeholder="Name">
 
     <label for="text">Text</label>
-    <input class="form-control"
-           placeholder="Description of the video"
-           value="Watch as wingsuit flier Uli Emanuele zips through a ring of fire in the Italian Alps in the video."
-           id="text"/>
+    <input type="text"
+           ng-model="model.widget.text"
+           id="text"
+           class="form-control"
+           placeholder="Description of the Video">
 
     <label for="url">URL</label>
-    <input class="form-control"
-           placeholder="URL of the image"
-           value="https://youtube.com/embed/uLWLashCXHE"
-           id="url"/>
+    <input type="url"
+           ng-model="model.widget.url"
+           id="url"
+           class="form-control"
+           placeholder="URL of the Video"
+           required>
 
     <label for="width">Width</label>
-    <input class="form-control"
-           placeholder="Width of the image"
-           value="100%"
-           id="width"/>
+    <select ng-model="model.widget.width"
+            id="width"
+            class="form-control"
+            required>
+        <option value="25%">25%</option>
+        <option value="50%">50%</option>
+        <option value="75%">75%</option>
+        <option value="100%" selected>100%</option>
+    </select>
 
-    <a href="widget-list.view.client.html"
-       class="btn btn-block btn-danger">Delete</a>
+    <a ng-click="model.deleteWidget(model.widgetId)" class="btn btn-block btn-danger">Delete</a>
 
 </div>
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="row-15px">
-            <a href="../../user/templates/profile.view.client.html">
-                <span class="glyphicon glyphicon-user pull-right"></span>
-            </a>
-        </div>
-    </div>
-</nav>
+<div ng-include="'views/common/footer.view.client.html'"></div>

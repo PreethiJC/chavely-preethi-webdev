@@ -12,17 +12,22 @@
         model.websiteId = $routeParams.websiteId;
         model.pageId = $routeParams.pageId;
         model.widgetId = $routeParams.widgetId;
-        model.deletePage = deletePage;
+        model.deleteWidget = deleteWidget;
+        model.updateWidget = updateWidget;
 
         function init() {
-            model.widgets = widgetService.findWidgetsByPageId(model.pageId);
             model.widget = widgetService.findWidgetById(model.widgetId);
         }
         init();
 
-        function deletePage(widgetId) {
-            widgetService.deletePage(widgetId);
+        function deleteWidget(widgetId) {
+            widgetService.deleteWidget(widgetId);
             $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget/');
+        }
+
+        function updateWidget() {
+            widgetService.updateWidget(model.widgetId, model.widget);
+            $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget');
         }
     }
 })();

@@ -60,7 +60,7 @@
             })
             .when('/user/:userId/website/:websiteId/page/:pageId/widget/new', {
                 templateUrl: 'views/widget/templates/widget-choose.view.client.html',
-                controller: 'widgetNewController',
+                controller: 'widgetChooseController',
                 controllerAs: 'model'
             })
             .when('/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId', {

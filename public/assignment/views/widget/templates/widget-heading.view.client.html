@@ -1,3 +1,16 @@
+<!--<nav class="navbar navbar-default navbar-fixed-top">-->
+    <!--<div class="container-fluid" >-->
+        <!--<div class="navbar-header">-->
+            <!--<p class="navbar-text-0px pull-left">-->
+                <!--<a class="navbar-header" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"><span-->
+                        <!--class="glyphicon glyphicon-chevron-left pull-left"></span></a>-->
+            <!--</p>>-->
+            <!--<a class="navbar-brand" href="#">-->
+                <!--<span class="padding-15px">Choose Widget</span>-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
 <div ng-switch="widget.size">
     <h1 ng-switch-when="1">{{widget.text}}</h1>
     <h2 ng-switch-when="2">{{widget.text}}</h2>
@@ -6,3 +19,4 @@
     <h5 ng-switch-when="5">{{widget.text}}</h5>
     <h6 ng-switch-when="6">{{widget.text}}</h6>
 </div>
+<!--<div ng-include="'views/common/footer.view.client.html'"></div>-->
