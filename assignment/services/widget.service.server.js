@@ -41,7 +41,7 @@ module.exports = function (app) {
         var destination = myFile.destination;  // folder where file is saved to
         var size = myFile.size;
         var mimetype = myFile.mimetype;
-        widget = {};
+        widget = findWidgetById(widgetId);
         widget.url = '/assignment/uploads/' + filename;
         var callbackUrl = "/assignment/index.html#!/widget/345";
         res.redirect(callbackUrl);
@@ -69,6 +69,7 @@ module.exports = function (app) {
     }
 
     function findWidgetById(req, res) {
+
         var widgetId = req.params.widgetId;
         for (var w in widgets) {
             if (widgets[w]._id === widgetId) {

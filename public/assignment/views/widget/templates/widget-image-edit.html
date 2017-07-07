@@ -32,8 +32,12 @@
         <option value="100%" selected>100%</option>
     </select>
 
-    <label for="file">Upload</label>
-    <input id="file" multiple type="file" class="form-control"/>
+
+    <form action="/api/upload"   method="post" enctype="multipart/form-data">
+        <input  name="myFile"    type="file" class="form-control"/>
+        <input  name="widgetId"  value="123"   style="display: none"/>
+        <button type="submit"    class="btn btn-block btn-primary">Upload Image</button>
+    </form>
     <a href=""
        class="btn btn-block btn-success">Upload</a>
 
