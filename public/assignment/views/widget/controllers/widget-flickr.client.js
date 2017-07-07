@@ -3,18 +3,10 @@
         .module("WAM")
         .controller("FlickrSearchController", FlickrSearchController);
 
-    function FlickrSearchController($scope, $fDialog, FlickrService) {
+    function FlickrSearchController($scope, FlickrService) {
         var model = this;
         this.searchPhotos = searchPhotos;
         this.choosePhoto = choosePhoto;
-
-        $scope.hide = function () {
-            $fDialog.hide();
-        };
-
-        $scope.cancel = function () {
-            $fDialog.cancel();
-        };
 
         function searchPhotos(query) {
             FlickrService
