@@ -13,10 +13,19 @@
         model.widgetUrl = widgetUrl;
 
         function init() {
-            model.widgets = widgetService.findWidgetsByPageId(model.pageId);
+            widgetService.findAllWidgetsForPage(model.pageId)
+                .then(renderWidgets, widgetError);
         }
 
         init();
+
+        function renderWidgets(widgets) {
+            model.widgets = widgets;
+        }
+
+        function widgetError() {
+            widgetCtrl.error = "Widget cannot be displayed. Please try again later";
+        }
 
         function widgetUrl(widget) {
             var url = 'views/widget/templates/widget-' + widget.widgetType.toLowerCase() + '.view.client.html';

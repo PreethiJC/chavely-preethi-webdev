@@ -12,14 +12,25 @@
         model.createWebsite = createWebsite;
 
         function init() {
-            model.websites = websiteService.findAllWebsitesForUser(model.userId);
+            websiteService.findWebsiteByUser(model.userId)
+                .then(renderWebsites, websiteError);
         }
+
         init();
 
-        function createWebsite(website) {
+        function renderWebsites(websites) {
+            model.websites = websites;
+        }
 
-            websiteService.createWebsite(model.userId, website);
-            $location.url('/user/'+model.userId+'/website');
+        function websiteError() {
+            model.error = "Page cannot be displayed. Please try again later!";
+        }
+
+        function createWebsite() {
+            websiteService.createWebsite(model.userId, model.newWebsite)
+                .then(function () {
+                    $location.url('/user/' + model.userId + "/website");
+                }, websiteError);
         }
     }
 })();

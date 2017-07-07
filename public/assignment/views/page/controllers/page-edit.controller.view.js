@@ -15,19 +15,45 @@
         model.updatePage = updatePage;
 
         function init() {
-            model.pages = pageService.findPageByWebsiteId(model.websiteId);
-            model.page = pageService.findPageById(model.pageId);
+            pageService.findPageByWebsiteId(model.websiteId)
+                .then(
+                    function (pages) {
+                        model.pages = pages;
+                    },
+                    function() {
+                        model.error = "Page cannot be displayed. Please try again later."
+                    });
+            pageService.findPageById(model.pageId)
+                .then(
+                    function (page) {
+                        model.currPage = page;
+                    },
+                    function() {
+                        model.error = "Page cannot be displayed. Please try again later."
+                    });
         }
         init();
 
-        function deletePage(pageId) {
-            pageService.deletePage(pageId);
-            $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/');
+        function deletePage() {
+            pageService.deletePage(model.pageId)
+                .then(
+                    function () {
+                        $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page');
+                    },
+                    function() {
+                        model.error = "Page cannot be displayed. Please try again later."
+                    });
         }
 
-        function updatePage(page) {
-            pageService.updatePage(model.pageId, page);
-            $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/');
+        function updatePage() {
+            pageService.updatePage(model.pageId, model.currPage)
+                .then(
+                    function () {
+                        $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page');
+                    },
+                    function() {
+                        model.error = "Page cannot be displayed. Please try again later."
+                    });
         }
     }
 })();

@@ -13,16 +13,27 @@
         model.createPage = createPage;
 
         function init() {
-            model.pages = pageService.findPageByWebsiteId(model.websiteId);
+            pageService.findPageByWebsiteId(model.websiteId)
+                .then(
+                    function (pages) {
+                        model.pages = pages;
+                    },
+                    function() {
+                        model.error = "Page cannot be displayed. Please try again later."
+                    });
         }
         init();
 
         function createPage(page) {
-            console.log(page);
-            pageService.createPage(model.websiteId, page);
-            $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/');
+            pageService.createPage(model.websiteId, model.newPage)
+                .then(
+                    function () {
+                        $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page');
+                    },
+                    function() {
+                        model.error = "Page cannot be displayed. Please try again later."
+                    });
         }
-
 
     }
 })();

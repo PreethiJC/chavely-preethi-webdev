@@ -3,9 +3,9 @@
         .module('WAM')
         .service('widgetService', widgetService);
 
-    function widgetService() {
+    function widgetService($http) {
         this.createWidget = createWidget;
-        this.findWidgetsByPageId = findWidgetsByPageId;
+        this.findAllWidgetsForPage = findAllWidgetsForPage;
         this.findWidgetById = findWidgetById;
         this.updateWidget = updateWidget;
         this.deleteWidget = deleteWidget;
@@ -38,7 +38,7 @@
                 });
         }
 
-        function findWidgetsByPageId(pageId) {
+        function findAllWidgetsForPage(pageId) {
             var url = pageURL + '/' + pageId + '/widget';
             return $http.get(url)
                 .then(function (response) {

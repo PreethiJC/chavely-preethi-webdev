@@ -14,6 +14,8 @@
         model.widgetId = $routeParams.widgetId;
         model.deleteWidget = deleteWidget;
         model.updateWidget = updateWidget;
+        model.uploadImage = uploadImage;
+        
 
         function init() {
             model.widget = widgetService.findWidgetById(model.widgetId);

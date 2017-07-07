@@ -10,8 +10,19 @@
         model.userId = $routeParams['userId'];
 
         function init() {
-            model.websites = websiteService.findAllWebsitesForUser(model.userId);
+            console.log()
+            websiteService.findAllWebsitesForUser(model.userId)
+                .then(renderWebsites, websiteError);
         }
+
         init();
+
+        function renderWebsites(websites) {
+            model.websites = websites;
+        }
+
+        function websiteError() {
+            model.error = "Page cannot be displayed. Please try again later!";
+        }
     }
 })();

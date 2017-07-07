@@ -16,19 +16,39 @@
 
 
         function init() {
-            model.websites = websiteService.findAllWebsitesForUser(model.userId);
-            model.website = websiteService.findWebsiteById(model.websiteId);
+            websiteService.findWebsiteByUser(model.userId)
+                .then(renderWebsites, websiteError);
+            websiteService.findWebsiteById(model.websiteId)
+                .then(renderWebsite, websiteError);
         }
         init();
 
-        function deleteWebsite(websiteId) {
-            websiteService.deleteWebsite(websiteId);
-            $location.url('/user/'+model.userId+'/website/');
+        function renderWebsites(websites) {
+            model.websites = websites;
+        }
+
+        function renderWebsite(website) {
+            model.currWebsite = website;
+        }
+
+        function websiteError() {
+            model.error = "Page cannot be displayed. Please try again later!";
+        }
+
+        function deleteWebsite() {
+            websiteService.deleteWebsite(model.websiteId)
+                .then(
+                    function () {
+                        $location.url('/user/' + model.userId + "/website");
+                    }, websiteError);
         }
 
         function updateWebsite(website) {
-            websiteService.updateWebsite(model.websiteId, website);
-            $location.url('/user/'+model.userId+'/website/');
+            websiteService.updateWebsite(model.websiteId, model.currentWebsite)
+                .then(
+                    function () {
+                        $location.url('/user/' + model.userId + "/website");
+                    }, websiteError);
         }
     }
 })();

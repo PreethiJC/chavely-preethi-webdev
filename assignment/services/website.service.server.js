@@ -23,7 +23,7 @@ module.exports = function (app) {
         var results = [];
         for (var w in websites) {
             if (websites[w].developerId === req.params.userId) {
-                results.push(websites[v]);
+                results.push(websites[w]);
             }
         }
         res.json(results);
