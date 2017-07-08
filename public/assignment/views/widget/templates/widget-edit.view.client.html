@@ -16,11 +16,13 @@
 </nav>
 
 <div class="container-fluid">
+    <h1>Hi</h1>
     <div ng-switch="model.widget.widgetType">
         <div ng-switch-when="HEADING">
             <div ng-include="'views/widget/templates/widget-heading-edit.html'"></div>
         </div>
         <div ng-switch-when="IMAGE">
+            <h1>Hello</h1>
             <div ng-include="'views/widget/templates/widget-image-edit.html'"></div>
         </div>
         <div ng-switch-when="HTML">
