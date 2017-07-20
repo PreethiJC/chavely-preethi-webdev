@@ -1,12 +1,12 @@
 // var app = require('../../../express');
-var app = require('node_modules/express');
-var userModel = require('../models/user/user.model.server');
+var app = require('../../express');
+var userModel = require('../model/user/user.model.server');
 
-app.get ('/api/assignment/user/:userId', findUserById);
-app.get ('/api/assignment/user', findAllUsers);
+app.get('/api/assignment/user/:userId', findUserById);
+app.get('/api/assignment/user', findAllUsers);
 app.post('/api/assignment/user', createUser);
-app.put ('/api/assignment/user/:userId', updateUser);
-app.delete ('/api/assignment/user/:userId', deleteUser);
+app.put('/api/assignment/user/:userId', updateUser);
+app.delete('/api/assignment/user/:userId', deleteUser);
 
 function deleteUser(req, res) {
     var userId = req.params.userId;
@@ -52,21 +52,21 @@ function findUserById(req, res) {
 function findAllUsers(req, res) {
     var username = req.query['username'];
     var password = req.query.password;
-    if(username && password) {
+    if (username && password) {
         userModel
             .findUserByCredentials(username, password)
             .then(function (user) {
-                if(user) {
+                if (user) {
                     res.json(user);
                 } else {
                     res.sendStatus(404);
                 }
             });
-    } else if(username) {
+    } else if (username) {
         userModel
             .findUserByUsername(username)
             .then(function (user) {
-                if(user) {
+                if (user) {
                     res.json(user);
                 } else {
                     res.sendStatus(404);
