@@ -7,11 +7,14 @@
            placeholder="Name">
 
     <label for="text">Text</label>
-    <input type="text"
-           ng-model="model.widget.text"
-           id="text"
-           class="form-control"
-           placeholder="Facebook">
+    <div id = 'text'
+         ng-model="model.widget.text"
+         text-angular
+         text-angular-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
+        ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
+        ['indent','outdent'],['html']]">
+    </div>
+
 
     <label for="size">Size</label>
     <input type="number"
@@ -20,6 +23,7 @@
            class="form-control"
            placeholder="Size"
            min="1" max="6" required>
+
 
     <a ng-click="model.deleteWidget(model.widgetId)" class="btn btn-block btn-danger">Delete</a>
 
