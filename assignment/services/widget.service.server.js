@@ -4,6 +4,7 @@
 module.exports = function (app) {
     var multer = require('multer'); // npm install multer --save
     var upload = multer({dest: __dirname + '/public/assignment/uploads'});
+    var widgetModel = require('./../model/widget/widget.model.server');
 
     var widgets = [
             {"_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
@@ -112,11 +113,17 @@ module.exports = function (app) {
             var pageId = req.params.pageId;
             var initial = req.query.initial;
             var final = req.query.final;
-            var widgetArray = findWidgetsForPage(pageId);
-            var initialIndex = widgets.indexOf(widgetArray[initial]);
-            var finalIndex = widgets.indexOf(widgetArray[final]);
-            widgets.move(initialIndex, finalIndex);
-            res.sendStatus(200);
+            widgetModel.reorderWidget(pageId, initial, final)
+                .then(function (page) {
+                    if (page) {
+                        res.sendStatus(200);
+                    }
+                    else {
+                        res.status(404).send(' Widget could not be reordered ');
+                    }
+                }, function (err) {
+                    res.status(404).send(' Widget could not be reordered ' + err);
+                })
         }
         catch(err)
         {
