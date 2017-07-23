@@ -1,0 +1,32 @@
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-xs-4">
+            <H1 style="color: silver">Search Books</H1>
+            <input ng-model="title" type="search" placeholder="What are you looking for?" class="form-control">
+            <br/>
+            <button ng-click="model.searchBook(title)" class="btn btn-primary btn-block">Search</button>
+            <h1 style="color: silver">Results</h1>
+            <ul class="list-group">
+                <li ng-click="model.book=book" ng-repeat="book in model.books" class="list-group-item">
+                    <img ng-src="{{book.best_book[0].image_url[0]}}" width="50px"/>
+                    {{book.best_book[0].title[0]}}
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-8">
+            <h1 style="color: silver">Details</h1>
+            <h2 style="color: silver"> {{model.book.best_book[0].title[0]}}</h2>
+            <img ng-src="{{model.book.best_book[0].image_url[0]}}" width="200px" height="250px"/>
+            <h3 style="color: silver">Author</h3>
+            <p>{{model.book.best_book[0].author[0].name[0]}}</p>
+            <h3 style="color: silver">Average Rating</h3>
+            <p>{{model.book.average_rating[0]}}</p>
+
+        </div>
+    </div>
+<!--<section class="webdesigntuts-workshop">-->
+
+</div>
+<!--</section>-->
