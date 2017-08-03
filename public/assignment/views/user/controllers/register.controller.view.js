@@ -22,7 +22,7 @@
             }
 
             userService
-                .findUserByUsername(username)
+                .register(username)
                 .then(
                     function () {
                         model.error = "sorry, that username is taken";
