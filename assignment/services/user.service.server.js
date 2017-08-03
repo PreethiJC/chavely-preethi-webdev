@@ -27,10 +27,10 @@ app.post('/api/assignment/graduate/login', passport.authenticate('local'), login
 app.get('/api/assignment/loggedin', loggedin);
 app.get('/api/assignment/logout', logout);
 app.post('/api/assignment/register', register);
-app.get('/auth/assignment/facebook', passport.authenticate('facebook', {scope: 'email'}));
+app.get('/auth/facebook', passport.authenticate('facebook', {scope: 'email'}));
 
 
-app.get('/auth/assignment/facebook/callback',
+app.get('/auth/facebook/callback',
     passport.authenticate('facebook', {
         successRedirect: '/assignment/',
         failureRedirect: '/assignment/login'

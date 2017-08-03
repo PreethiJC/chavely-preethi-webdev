@@ -107,8 +107,8 @@
             .loggedin()
             .then(function (user) {
                 if(user === '0') {
-                    deferred.resolve({});
-                    // $location.url('/login');
+                    // deferred.resolve({});
+                    $location.url('/login');
                 } else {
                     deferred.resolve(user);
                 }
