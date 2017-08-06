@@ -24,23 +24,6 @@ app.use(passport.session());
 // configure a public directory to host static content
 app.use(express.static(__dirname + '/public'));
 
-
-
-app.get('/api/project/books/:title', findBookByTitle);
-
-function findBookByTitle(req, res) {
-    var title = req.params['title'];
-    //var dump = json  {json && res.write(JSON.stringify(json)); res.end()}
-
-    gr = goodreads.client({ 'key': 'T3XmyOG438rZNaDB6kTcHQ', 'secret': 'D3voCuGGxlGhZpcze8KyhT4N8Zx2I2io3mWKhoG70g' })
-
-    gr.searchBooks(title, function (out) {
-        out && res.write(JSON.stringify(out));
-        res.end();
-
-    });
-}
-
 require ("./test/app");
 require ("./assignment/app");
 require("./project/app");
