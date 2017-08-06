@@ -1,20 +1,22 @@
 // var app = require('../../../express');
-var app = require('../../express');
+var express = require('express');
+var app = express();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var userModel = require('../model/user/user.model.server');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var bcrypt = require("bcrypt-nodejs");
+app.use(express.static(__dirname + '/assignment'));
 //facebook config
 var facebookConfig = {
     clientID: process.env.FACEBOOK_CLIENT_ID,
     clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-    callbackURL: process.env.FACEBOOK_CALLBACK_URL
+    callbackURL: 'http://localhost:3000/auth/assignment/facebook/callback'
 };
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
 app.get('/api/assignment/user/:userId', findUserById);
-app.get('/api/assignment/user', findAllUsers);
+app.get('/api/assignment/services/user', findAllUsers);
 app.post('/api/assignment/user', createUser);
 app.put('/api/assignment/user/:userId', updateUser);
 app.delete('/api/assignment/user/:userId', deleteUser);
@@ -23,14 +25,14 @@ passport.use(new LocalStrategy(localStrategy));
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
-app.post('/api/assignment/graduate/login', passport.authenticate('local'), login);
+app.post('/api/assignment/login', passport.authenticate('local'), login);
 app.get('/api/assignment/loggedin', loggedin);
 app.get('/api/assignment/logout', logout);
 app.post('/api/assignment/register', register);
-app.get('/auth/facebook', passport.authenticate('facebook', {scope: 'email'}));
+app.get('/auth/assignment/services/facebook', passport.authenticate('facebook', {scope: 'email'}));
 
 
-app.get('/auth/facebook/callback',
+app.get('/auth/assignment/services/facebook/callback',
     passport.authenticate('facebook', {
         successRedirect: '/assignment/',
         failureRedirect: '/assignment/login'

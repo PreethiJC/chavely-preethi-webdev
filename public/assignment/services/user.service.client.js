@@ -71,7 +71,7 @@
         }
 
         function createUser(user) {
-            var url = "/api/assignment/graduate/user";
+            var url = "/api/assignment/services/user";
             return $http.post(url, user)
                 .then(function (response) {
                     return response.data;
@@ -106,7 +106,8 @@
         }
 
         function findUserByCredentials(username, password) {
-            var url = "/api/assignment/user?username="+username+"&password="+password;
+            var url = "/api/assignment/services/user?username="+username+"&password="+password;
+            console.log('Hello');
             return $http.get(url)
                 .then(function (response) {
                     return response.data;

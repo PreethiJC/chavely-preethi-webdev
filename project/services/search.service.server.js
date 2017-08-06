@@ -1,9 +1,10 @@
-var app = require('../../express');
+var express = require('express');
+var app = express();
 var goodreads = require('goodreads');
 console.log("hi");
-
+app.use(express.static(__dirname + '/project'));
 app.get('/api/project/book/:title', findBookByTitle);
-app.get('/api/project', function () {
+app.get('http://localhost:3000/api/project/services', function () {
     console.log("I am here");
 });
 
@@ -21,3 +22,4 @@ function findBookByTitle(req, res) {
         res.json = out;
     });*/
 }
+// app.listen(3000);
