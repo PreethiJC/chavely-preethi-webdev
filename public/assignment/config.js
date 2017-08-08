@@ -7,8 +7,6 @@
         $routeProvider
             .when('/', {
                 templateUrl: 'home.html',
-                controller: 'mainController',
-                controllerAs: 'model',
                 resolve: {
                     currentUser: checkCurrentUser
                 }
