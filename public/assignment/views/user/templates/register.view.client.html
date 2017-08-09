@@ -4,16 +4,20 @@
         {{model.error}}
     </div>
     <label for="username">Username</label>
-    <input ng-model="model.user.username"
+    <input ng-model="username"
            type="text"
            id="username"
+           ng-value="username"
            class="form-control"
            placeholder="username"/>
-    <input ng-model="model.user.password"
+    <input ng-model="password"
+           id = "password"
            type="password"
            class="form-control"
            placeholder="password"/>
-    <input type="password"
+    <input ng-model="password2"
+            type="password"
+           id="password2"
            class="form-control"
            placeholder="verify password"/>
     <a ng-click="model.register(username, password, password2)" class="btn btn-primary btn-block">Register</a>

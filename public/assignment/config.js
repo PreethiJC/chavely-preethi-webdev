@@ -21,7 +21,7 @@
                 controller: 'registerController',
                 controllerAs: 'model'
             })
-            .when('/user/:userId', {
+            .when('/user/', {
                 templateUrl: 'views/user/templates/profile.view.client.html',
                 controller: 'profileController',
                 controllerAs: 'model',
@@ -87,6 +87,7 @@
         userService
             .loggedin()
             .then(function (user) {
+                console.log(user);
                 if(user === '0') {
                     deferred.reject();
                     $location.url('/login');
@@ -104,6 +105,7 @@
         userService
             .loggedin()
             .then(function (user) {
+
                 if(user === '0') {
                     // deferred.resolve({});
                     $location.url('/login');

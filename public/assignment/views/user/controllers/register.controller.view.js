@@ -10,6 +10,7 @@
         model.register = register;
 
         function register(username, password, password2) {
+            console.log('AM HERE');
 
             if(username === null || username === '' || typeof username === 'undefined') {
                 model.error = 'username is required';
@@ -20,22 +21,25 @@
                 model.error = "passwords must match";
                 return;
             }
-
-            userService
-                .register(username)
-                .then(
-                    function () {
-                        model.error = "sorry, that username is taken";
-                    },
-                    function () {
-                        var newUser = {
+            var newUser = {
                             username: username,
                             password: password
                         };
-                        return userService
-                            .createUser(newUser);
-                    }
-                )
+            userService
+                .createUser(newUser)
+                // .then(
+                //     function () {
+                //         model.error = "sorry, that username is taken";
+                //     },
+                //     function () {
+                //         var newUser = {
+                //             username: username,
+                //             password: password
+                //         };
+                //         return userService
+                //             .createUser(newUser);
+                //     }
+                // )
                 .then(function (user) {
                     $location.url('/user/' + user._id);
                 });

@@ -1,3 +1,4 @@
-var app = require('../express');
+module.exports = function (app) {
 
-require('./services/search.service.server');
+    require('./services/search.service.server')(app);
+};

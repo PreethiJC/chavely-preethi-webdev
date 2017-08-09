@@ -24,9 +24,9 @@ app.use(passport.session());
 // configure a public directory to host static content
 app.use(express.static(__dirname + '/public'));
 
-require ("./test/app");
-require ("./assignment/app");
-require("./project/app");
+require ("./test/app")(app);
+require ("./assignment/app")(app);
+require("./project/app")(app);
 
 var port = process.env.PORT || 3000;
 
