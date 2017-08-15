@@ -1,30 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+<!DOCTYPE html>
+<html lang="en" ng-app="WAM">
 <head>
-    <meta charset="UTF-8">
-    <title>Web Dev Course Home Page</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!--<meta name="description" content="">-->
+    <!--<meta name="author" content="">-->
+    <!--<link rel="icon" href="">-->
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="assignment/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="assignment/vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="assignment/vendor/theme.css" rel="stylesheet">
+
+    <!-- Text Angular css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.16/textAngular.min.css">
+
+    <link href="assignment/css/homestyle.css" rel="stylesheet"/>
 </head>
+
 <body>
-    <h1>Web Dev Course Home Page</h1>
-
-    <p>
-        Customize this home page to your linking.
-    </p>
-
-    <h2>Required links</h2>
-    <ul>
-        <li>
-            <a href="https://chavely-athenaeum.herokuapp.com/project/#!/">Project</a>
-        </li>
-        <li>
-            <a href="assignment/">Assignment</a>
-        </li>
-        <li>
-            <a href="test/index.html">Test MongoDB</a>
-        </li>
-        <li>
-            <a href="https://github.com/PreethiJC/chavely-preethi-webdev">Your public repository at GitHub.com</a>
-        </li>
-    </ul>
+<div class="navbar-wrapper">
+    <div class="container">
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <a class="navbar-brand" href="#!/">Web Development <small>Home Page</small></a>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav pull-right">
+                        <li><a href="https://chavely-athenaeum.herokuapp.com/project/#!/">Project</a></li>
+                        <li><a href="assignment/">Assignment</a></li>
+                        <li><a href="test/index.html">Test MongoDB</a></li>
+                        <li><a href="https://github.com/PreethiJC/chavely-preethi-webdev">GitHub Repository</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container marketing">
+        <div class="container-fluid">
+            <h1>About Me</h1>
+            <h2>Preethi Chavely </h2>
+            <img src="img/profilePic.jpg" width="150 px" height="200 px"/>
+            <p></p>
+            <p>Hi! My name is Preethi Chavely. I am a graduate student at Northeastern University. Before joining Northeastern, I worked as a Product Information Specialist in Unisys for 2 years and 8 months.</p>
+            <hr/>
+            <h3>Work Experience</h3>
+            <h4>Northeastern University, Boston, MA <div class="pull-right"> June 2017 – Present</div></h4>
+            <p><strong>Research Assistant</strong></p>
+            <ul class="list-group">
+                <li class="list-group-item">Created a Python utility to extract data from music crowdfunding campaigns on Indiegogo to support a research project on crowdfunding campaign success, reducing turnaround time by 90%.</li>
+            </ul>
+            <h4>Unisys Global Services, Bangalore, India <div class="pull-right">April 2014 - Dec 2016</div></h4>
+            <p><strong>Product Information Specialist</strong></p>
+            <ul class="list-group">
+                <li class="list-group-item">Engineered a windows app using C#.Net to automate new information updates to large glossary files for OS2200, bringing down the overall time from 4 months to a day.</li>
+                <li class="list-group-item">Created a suite of automation tools for pagination, finding terms, and resolving cross references across multiple documents, reducing 70% of manual work for the OS2200 Documentation team.</li>
+                <li class="list-group-item">Built a C#.Net utility to create a searchable dictionary of help screen fields from set of documents to automate documentation process of HOLMES2 v16.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<!--<script src="../../assets/js/docs.min.js"></script>-->
 </body>
 </html>
